@@ -1,4 +1,4 @@
-const API_BASE = import.meta.env.VITE_API_URL || '/api';
+const API_BASE = import.meta.env.VITE_API_URL || 'https://karmix-helper-1.onrender.com/api';
 
 export class ApiClient {
   private static getToken(): string | null {
@@ -91,7 +91,7 @@ export class ApiClient {
   }
 
   public static getSavedSchemes() {
-    return this.request<any>('/schemes/saved');
+    return this.request<any>(`/schemes/saved`);
   }
 
   // Eligibility
