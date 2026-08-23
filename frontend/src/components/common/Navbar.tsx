@@ -70,13 +70,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAIModal }) => {
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl bg-gov-navy flex items-center justify-center text-white shadow-md shadow-slate-900/10 group-hover:scale-105 transition-transform duration-200">
-              <span className="font-bold text-lg tracking-wider text-amber-400">K</span>
-            </div>
+            <img
+              src="/karmix-logo.png"
+              alt="Karmix Logo"
+              className="w-10 h-10 rounded-xl object-cover bg-black shadow-md shadow-slate-900/10 group-hover:scale-105 transition-transform duration-200"
+            />
             <div className="flex flex-col">
               <div className="flex items-center gap-1.5">
-                <span className="font-bold text-lg sm:text-xl text-slate-900 tracking-tight">Karmix Helper</span>
-                <span className="text-[10px] uppercase font-semibold bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded-full">Civic AI</span>
+                <span className="font-black text-lg sm:text-xl text-slate-900 tracking-tight">Karmix Helper</span>
+                <span className="text-[10px] uppercase font-bold bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded-full">Civic AI</span>
               </div>
               <span className="text-[11px] text-slate-500 font-medium hidden sm:block">Understand. Discover. Apply.</span>
             </div>

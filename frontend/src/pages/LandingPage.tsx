@@ -121,10 +121,17 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onOpenAIModal }) => {
       <section className="relative overflow-hidden pt-8 sm:pt-14 pb-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto space-y-6">
-            {/* Top Pill */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-gov-blue text-xs font-semibold shadow-2xs">
-              <ShieldCheck className="w-4 h-4 text-emerald-600" />
-              <span>Grounded in Official Indian Government Gazettes & Portals</span>
+            {/* Top Pill & Brand Logo */}
+            <div className="flex flex-col items-center gap-4">
+              <img
+                src="/karmix-logo.png"
+                alt="Karmix Logo"
+                className="w-20 h-20 sm:w-24 sm:h-24 rounded-3xl object-cover bg-black shadow-xl shadow-slate-900/15 border-2 border-slate-900 hover:scale-105 transition-transform duration-300"
+              />
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-gov-blue text-xs font-semibold shadow-2xs">
+                <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                <span>Grounded in Official Indian Government Gazettes & Portals</span>
+              </div>
             </div>
 
             {/* Main Headline */}
