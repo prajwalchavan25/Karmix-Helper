@@ -1,0 +1,254 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id                String            @id @default(uuid())
+  email             String            @unique
+  password          String
+  name              String
+  phone             String?
+  role              String            @default("CITIZEN") // CITIZEN or ADMIN
+  preferredLanguage String            @default("en")      // en, mr, hi
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
+
+  profile           UserProfile?
+  savedSchemes      SavedScheme[]
+  applications      Application[]
+  notifications     Notification[]
+  reports           Report[]
+  conversations     AIConversation[]
+}
+
+model UserProfile {
+  id                  String   @id @default(uuid())
+  userId              String   @unique
+  user                User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  age                 Int?
+  gender              String?  // Male, Female, Other, Any
+  state               String?  // e.g. Maharashtra, Karnataka, All India
+  district            String?
+  areaType            String?  // Rural, Urban, Semi-Urban
+  occupation          String?  // Student, Farmer, Business Owner, Daily Wage, Unemployed, Salaried, Other
+  education           String?  // Below 10th, 10th Pass, 12th Pass, Diploma, Undergraduate, Post Graduate, Doctorate
+  incomeRange         String?  // Below 1L, 1L - 2.5L, 2.5L - 5L, 5L - 8L, Above 8L
+  incomeAmount        Float?
+  casteCategory       String?  // General, OBC, SC, ST, EWS, Other
+  isMinority          Boolean? @default(false)
+  isDisability        Boolean? @default(false)
+  disabilityPercentage Float?
+  isBpl               Boolean? @default(false)
+  rationCardType      String?  // Yellow (BPL), Orange (AAY), White (APL), None
+  landHoldingAcres    Float?
+  maritalStatus       String?  // Single, Married, Widowed, Divorced
+  hasFamilyMembers    Int?
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+}
+
+model SchemeCategory {
+  id             String   @id @default(uuid())
+  slug           String   @unique
+  nameEn         String
+  nameMr         String
+  nameHi         String
+  icon           String
+  descriptionEn  String?
+  descriptionMr  String?
+  descriptionHi  String?
+  displayOrder   Int      @default(0)
+  schemes        Scheme[]
+}
+
+model GovernmentSource {
+  id             String    @id @default(uuid())
+  name           String
+  domain         String
+  officialUrl    String
+  portalName     String
+  departmentName String
+  level          String    @default("CENTRAL") // CENTRAL or STATE
+  state          String?
+  isVerified     Boolean   @default(true)
+  lastVerifiedAt DateTime  @default(now())
+  schemes        Scheme[]
+}
+
+model Scheme {
+  id                     String             @id @default(uuid())
+  slug                   String             @unique
+  titleEn                String
+  titleMr                String
+  titleHi                String
+  shortSummaryEn         String
+  shortSummaryMr         String
+  shortSummaryHi         String
+  detailedDescriptionEn  String
+  detailedDescriptionMr  String
+  detailedDescriptionHi  String
+  benefitsEn             String
+  benefitsMr             String
+  benefitsHi             String
+  benefitType            String             @default("Direct Benefit Transfer") // Cash/DBT, Subsidy, Loan, Insurance, Training, Free Service
+  department             String
+  level                  String             @default("CENTRAL") // CENTRAL or STATE
+  state                  String?
+  categoryId             String
+  category               SchemeCategory     @relation(fields: [categoryId], references: [id])
+  sourceId               String?
+  source                 GovernmentSource?  @relation(fields: [sourceId], references: [id])
+  applicationMode        String             @default("ONLINE") // ONLINE, OFFLINE, BOTH
+  applicationUrl         String
+  portalName             String
+  applicationDeadline    String?            // "Rolling / Always Open" or specific date string
+  applicationStepsEn     String             // JSON string array of steps
+  applicationStepsMr     String
+  applicationStepsHi     String
+  importantNotesEn       String?
+  importantNotesMr       String?
+  importantNotesHi       String?
+  isPublished            Boolean            @default(true)
+  isFeatured             Boolean            @default(false)
+  viewsCount             Int                @default(0)
+  savesCount             Int                @default(0)
+  lastVerifiedAt         DateTime           @default(now())
+  createdAt              DateTime           @default(now())
+  updatedAt              DateTime           @updatedAt
+
+  eligibilityCriteria    EligibilityCriteria?
+  requiredDocuments      RequiredDocument[]
+  savedByUsers           SavedScheme[]
+  applications           Application[]
+  reports                Report[]
+}
+
+model EligibilityCriteria {
+  id                     String   @id @default(uuid())
+  schemeId               String   @unique
+  scheme                 Scheme   @relation(fields: [schemeId], references: [id], onDelete: Cascade)
+  minAge                 Int?
+  maxAge                 Int?
+  allowedGenders         String?  // JSON string or comma-separated, e.g. "Male,Female,Other" or "Any"
+  allowedStates          String?  // JSON string or comma-separated, e.g. "Maharashtra,All India"
+  allowedOccupations     String?  // JSON string e.g. ["Student","Unemployed"]
+  allowedEducation       String?  // JSON string e.g. ["10th Pass","Undergraduate"]
+  maxAnnualIncome        Float?   // e.g. 250000 (2.5 Lakhs)
+  allowedCategories      String?  // JSON string e.g. ["SC","ST","OBC","EWS","General"]
+  requiresDisability     Boolean? @default(false)
+  requiresBpl            Boolean? @default(false)
+  requiresLandHoldingMax Float?
+  extraConditionsEn      String?  // Extra criteria explanation in English
+  extraConditionsMr      String?
+  extraConditionsHi      String?
+}
+
+model RequiredDocument {
+  id                String   @id @default(uuid())
+  schemeId          String
+  scheme            Scheme   @relation(fields: [schemeId], references: [id], onDelete: Cascade)
+  nameEn            String
+  nameMr            String
+  nameHi            String
+  descriptionEn     String?
+  descriptionMr     String?
+  descriptionHi     String?
+  isMandatory       Boolean  @default(true)
+  issuanceAuthority String?  // e.g. "Tahasildar / Revenue Department", "UIDAI", "Bank"
+  documentType      String?  // Identity, Income, Domicile, Education, Land, Bank, Other
+}
+
+model SavedScheme {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  schemeId  String
+  scheme    Scheme   @relation(fields: [schemeId], references: [id], onDelete: Cascade)
+  notes     String?
+  createdAt DateTime @default(now())
+
+  @@unique([userId, schemeId])
+}
+
+model Application {
+  id                   String   @id @default(uuid())
+  userId               String
+  user                 User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  schemeId             String
+  scheme               Scheme   @relation(fields: [schemeId], references: [id], onDelete: Cascade)
+  status               String   @default("INTERESTED") // INTERESTED, DOCUMENTS_PENDING, READY_TO_APPLY, APPLIED, UNDER_REVIEW, APPROVED, REJECTED, COMPLETED
+  referenceNumber      String?
+  appliedDate          DateTime?
+  deadlineDate         DateTime?
+  notes                String?
+  documentProgressJson String?  // JSON storing { "docId": "READY" | "MISSING" | "NA" }
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+}
+
+model Notification {
+  id                   String   @id @default(uuid())
+  userId               String
+  user                 User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  titleEn              String
+  titleMr              String
+  titleHi              String
+  messageEn            String
+  messageMr            String
+  messageHi            String
+  type                 String   @default("SYSTEM") // DEADLINE, SCHEME_UPDATE, DOCUMENT_PENDING, SYSTEM
+  isRead               Boolean  @default(false)
+  relatedSchemeId      String?
+  relatedApplicationId String?
+  createdAt            DateTime @default(now())
+}
+
+model Report {
+  id          String   @id @default(uuid())
+  userId      String?
+  user        User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  schemeId    String
+  scheme      Scheme   @relation(fields: [schemeId], references: [id], onDelete: Cascade)
+  issueType   String   // INCORRECT_ELIGIBILITY, OUTDATED_DEADLINE, WRONG_DOCUMENT, BROKEN_LINK, SCHEME_CLOSED, TRANSLATION_ISSUE, OTHER
+  description String
+  userEmail   String?
+  status      String   @default("PENDING") // PENDING, INVESTIGATING, RESOLVED, REJECTED
+  adminNotes  String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model AIConversation {
+  id        String      @id @default(uuid())
+  userId    String?
+  user      User?       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title     String      @default("Civic Query")
+  language  String      @default("en")
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+  messages  AIMessage[]
+}
+
+model AIMessage {
+  id                    String         @id @default(uuid())
+  conversationId        String
+  conversation          AIConversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  sender                String         // USER, ASSISTANT, SYSTEM
+  content               String
+  referencedSchemesJson String?        // JSON array of scheme objects { id, title, slug, benefit }
+  createdAt             DateTime       @default(now())
+}
+
+model SearchLog {
+  id                String   @id @default(uuid())
+  query             String
+  parsedFiltersJson String?
+  resultsCount      Int      @default(0)
+  language          String   @default("en")
+  createdAt         DateTime @default(now())
+}

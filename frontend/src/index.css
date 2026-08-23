@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 min-h-screen font-sans;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Smooth civic transitions */
+.civic-card {
+  @apply bg-white border border-slate-200/80 rounded-2xl shadow-sm hover:shadow-md transition-all duration-200;
+}
+
+.civic-input {
+  @apply w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-white text-slate-800 focus:outline-none focus:ring-2 focus:ring-civic-500/20 focus:border-civic-500 transition-colors placeholder:text-slate-400 text-sm;
+}
+
+.civic-btn-primary {
+  @apply px-5 py-2.5 bg-gov-navy hover:bg-slate-800 text-white font-medium rounded-xl shadow-sm hover:shadow transition-all duration-150 flex items-center justify-center gap-2 text-sm disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.civic-btn-secondary {
+  @apply px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium rounded-xl transition-all duration-150 flex items-center justify-center gap-2 text-sm;
+}
+
+.civic-btn-accent {
+  @apply px-5 py-2.5 bg-civic-600 hover:bg-civic-700 text-white font-medium rounded-xl shadow-sm hover:shadow transition-all duration-150 flex items-center justify-center gap-2 text-sm;
+}
