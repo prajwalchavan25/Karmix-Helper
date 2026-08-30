@@ -1,47 +1,80 @@
-# Karmix Helper (कार्मिक्स हेल्पर)
-> **Tagline:** *"Understand. Discover. Apply."*  
-> **Mission:** An AI-powered civic-tech platform to help ordinary citizens discover, understand, check eligibility for, and apply to government schemes, scholarships, subsidies, and public services across India.
+<div align="center">
+  <img src="frontend/public/karmix-logo.png" width="120" height="120" alt="Karmix Helper Logo" style="border-radius: 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.2);" />
+  <h1>🏛️ Karmix Helper (कार्मिक्स हेल्पर)</h1>
+  <p><strong>Understand. Discover. Apply.</strong></p>
+  <p><em>An AI-powered civic-tech platform helping citizens discover, understand, check eligibility for, and apply to Indian Central & State government schemes.</em></p>
+
+  <p>
+    <img src="https://img.shields.io/badge/React-18.x-blue?style=for-the-badge&logo=react" alt="React" />
+    <img src="https://img.shields.io/badge/TypeScript-5.x-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+    <img src="https://img.shields.io/badge/Node.js-18+-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" />
+    <img src="https://img.shields.io/badge/Tailwind_CSS-3.x-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
+    <img src="https://img.shields.io/badge/Prisma-ORM-2D3748?style=for-the-badge&logo=prisma&logoColor=white" alt="Prisma" />
+    <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License" />
+  </p>
+</div>
 
 ---
 
-## 🏛️ Executive Summary
+## 🌟 Executive Summary
 
-Government welfare information is frequently fragmented across dozens of separate central and state portals, dense gazettes, and complicated bureaucratic jargon. Eligible citizens — especially students, farmers, rural artisans, and small business owners — often miss out on entitled benefits because of complex eligibility requirements and confusing documentation procedures.
+Government welfare information in India is often fragmented across dozens of separate portals, gazettes, and complicated bureaucratic jargon. Millions of eligible citizens — students, farmers, rural artisans, women entrepreneurs, and senior citizens — miss out on entitled benefits because of complex eligibility requirements and confusing documentation procedures.
 
-**Karmix Helper** bridges this gap as a modern civic assistant:
+**Karmix Helper** transforms public governance through AI:
 - 🎯 **Personalized Scheme Discovery**: Smart filtering based on demographic, economic, and regional parameters.
-- 🤖 **Context-Grounded Karmix AI Assistant**: Multi-turn civic chatbot answering queries in **English**, **Marathi (मराठी)**, and **Hindi (हिन्दी)** with verified scheme cards.
-- 📊 **Multi-Criteria Eligibility Evaluator**: Instant calculation showing **Likely Eligible (🟢)**, **Needs More Info (🟡)**, and **Not Eligible (🔴)** with detailed breakdown of every single condition.
-- 📋 **Document Readiness Checklist**: Real-time progress bar (e.g. *3 of 5 documents ready*) with issuing office guidance.
+- 🤖 **Context-Grounded Karmix AI Assistant**: Multi-turn civic assistant answering queries in **English**, **मराठी (Marathi)**, and **हिन्दी (Hindi)** with verified scheme cards.
+- 📊 **Multi-Criteria Eligibility Evaluator**: Instant calculation showing **Likely Eligible (🟢)**, **Needs More Info (🟡)**, and **Not Eligible (🔴)** with detailed condition-by-condition breakdown.
+- 📋 **Document Readiness Checklist**: Real-time progress bar (e.g. *3 of 5 documents ready*) with issuing authority guidelines.
 - 🔄 **Application Lifecycle Tracker**: Track scheme applications from *Interested* → *Documents Pending* → *Applied* → *Approved*.
 - 🛡️ **Verified Official Sources**: Direct links to authentic government domains (`.gov.in`, `.nic.in`, MahaDBT, PM-Kisan, Ayushman Bharat) with zero intermediaries.
 - ⚙️ **Administrative Management & Civic Analytics**: Live analytics for scheme views, search trends, user reports, and source verification.
 
 ---
 
-## 💻 Tech Stack
+## 🏗️ System Architecture & Tech Stack
+
+```
+                               ┌────────────────────────────────┐
+                               │   Karmix Helper Web Client     │
+                               │  (React 18 + TS + Tailwind)    │
+                               └───────────────┬────────────────┘
+                                               │
+                                 REST API & Local Fallback
+                                               │
+                               ┌───────────────▼────────────────┐
+                               │    Express & Node.js Server    │
+                               │   (Authentication & Routing)   │
+                               └───────────────┬────────────────┘
+                                               │
+                      ┌────────────────────────┼────────────────────────┐
+                      │                        │                        │
+             ┌────────▼────────┐      ┌────────▼────────┐      ┌────────▼────────┐
+             │   Prisma ORM    │      │  Hybrid AI Core │      │ Civic Analytics │
+             │  (SQLite DB)    │      │ (Gemini/Offline)│      │  (Search Logs)  │
+             └─────────────────┘      └─────────────────┘      └─────────────────┘
+```
 
 ### Frontend
 - **Framework**: React 18 + TypeScript + Vite
 - **Styling**: Tailwind CSS (Civic-tech palette: Deep Navy, Trust Azure, Emerald, Amber)
-- **Icons**: Lucide React
-- **Analytics Charts**: Recharts
-- **Internationalization (i18n)**: Native React Context supporting English, Marathi, and Hindi
-- **Mobile First**: Responsive top navigation for desktop + Bottom navigation bar for mobile
+- **Icons & Charts**: Lucide React + Recharts
+- **Internationalization**: Native i18n supporting English, Marathi, and Hindi
+- **Mobile First**: Responsive top navigation + mobile bottom navigation bar
 
 ### Backend
 - **Runtime**: Node.js + Express + TypeScript
 - **Database & ORM**: SQLite / PostgreSQL with Prisma ORM
-- **Authentication**: JWT (JSON Web Tokens) + bcryptjs password hashing + Role-Based Access Control (`CITIZEN` / `ADMIN`)
-- **AI Engine**: Google Gemini API integration with automatic fallback to an intelligent deterministic civic knowledge base (guaranteeing 100% testability offline or during presentations)
+- **Authentication**: JWT (JSON Web Tokens) + bcryptjs + RBAC (`CITIZEN` / `ADMIN`)
+- **AI Engine**: Google Gemini API integration with automatic fallback to an intelligent deterministic civic knowledge base
 
 ---
 
 ## 🚀 Quick Start & Installation
 
-### 1. Clone & Navigate to Project
+### 1. Clone the Repository
 ```bash
-cd karmix-helper
+git clone https://github.com/prajwalchavan25/Karmix-Helper.git
+cd Karmix-Helper
 ```
 
 ### 2. Backend Setup
@@ -49,79 +82,68 @@ cd karmix-helper
 cd backend
 npm install
 npm run db:setup
-```
-*This command generates the Prisma client, creates the SQLite database, and seeds it with realistic Indian central & state government schemes, categories, official sources, and demo accounts.*
-
-To start the backend server:
-```bash
 npm run dev
 ```
-Backend API will be running at `http://localhost:5000`.
+*Backend API runs at: `http://localhost:5000`*
 
 ### 3. Frontend Setup
-In a separate terminal:
 ```bash
 cd ../frontend
 npm install
 npm run dev
 ```
-Frontend Web App will be running at `http://localhost:3000`.
+*Frontend Web App runs at: `http://localhost:3000`*
 
 ---
 
-## 🔑 Demo Accounts
+## 🔑 Pre-Loaded Demo Accounts
 
-The application is pre-seeded with ready-to-test demo accounts:
-
-| Role | Email | Password | Pre-loaded Features |
+| Role | Email | Password | Features Included |
 | :--- | :--- | :--- | :--- |
-| **Citizen** | `citizen@karmix.in` | `Citizen@123456` | Pre-configured profile (Rahul Patil, 20yo Student, Maharashtra, OBC), active MahaDBT application, document checklist, saved schemes, notification alerts |
-| **Admin** | `admin@karmix.gov.in` | `Admin@123456` | Full administrative access, scheme CRUD, citizen issue report resolution, domain verification, civic analytics charts |
-
-*Note: On the login page, you can click the **Quick Demo Logins** button to fill in credentials automatically with a single click.*
+| **👤 Citizen** | `citizen@karmix.in` | `Citizen@123456` | Student profile (Rahul Patil, Pune, OBC), active MahaDBT application, document checklist, saved schemes, notification alerts |
+| **🛡️ Admin** | `admin@karmix.gov.in` | `Admin@123456` | Full administrative access, civic analytics charts, scheme CRUD, citizen report review, source verification |
 
 ---
 
-## 🧭 Key User Journeys to Test
+## 📂 Project Directory Structure
 
-### Flow 1: Instant Quick Match (No Login Needed)
-1. Open `http://localhost:3000/`.
-2. On the Landing Page hero, enter `Age: 20`, `State: Maharashtra`, `Occupation: Student`, `Income: 1L - 2.5L`.
-3. Click **Discover Matched Schemes**.
-4. The system filters relevant schemes (e.g. *MahaDBT Post-Matric Scholarship*, *NAPS Apprenticeship*) with computed eligibility indicators.
-
-### Flow 2: Multi-Language Switcher
-1. In the navigation bar header, click the language dropdown (Globe icon).
-2. Switch between **English**, **मराठी (Marathi)**, and **हिन्दी (Hindi)**.
-3. Observe how UI buttons, scheme titles, benefits, disclaimers, and AI responses switch language seamlessly.
-
-### Flow 3: AI Eligibility Assessment
-1. Open any scheme (e.g., *MahaDBT Post-Matric Scholarship for OBC & EBC Students*).
-2. Click **Check Eligibility**.
-3. View the detailed criteria breakdown (Age, Domicile, Occupation, Income Ceiling, Caste Category) with pass/fail badges, match percentage, and explanation.
-
-### Flow 4: Interactive Document Readiness
-1. On the scheme detail page, scroll to **Required Documents**.
-2. Toggle status between **Ready**, **Missing**, and **Not Applicable**.
-3. Watch the readiness progress bar update in real time (e.g., *3 of 5 documents ready (60%)*).
-
-### Flow 5: Karmix AI Assistant
-1. Click **Ask Karmix AI** in the top navbar or the floating badge.
-2. Ask in English, Marathi, or Hindi (e.g., *"What schemes are available for farmers in Maharashtra?"* or *"शेतकऱ्यांसाठी कोणत्या योजना आहेत?"*).
-3. The AI responds with structured guidance, verified scheme benefit cards, and official portal links.
-
-### Flow 6: Application Lifecycle Tracker
-1. Click **Add to Tracker** on a scheme.
-2. Enter an application reference ID and set the status to `Applied`.
-3. Navigate to **Applications** to manage your pipeline from *Documents Pending* to *Approved*.
-
-### Flow 7: Administrative Oversight & Analytics
-1. Log in as `admin@karmix.gov.in` / `Admin@123456`.
-2. Navigate to `/admin`.
-3. Inspect category distribution charts, application status pipeline, most viewed schemes, search demand logs, create/edit schemes, and resolve citizen feedback reports.
+```
+karmix-helper/
+├── backend/
+│   ├── prisma/            # Relational database schema & seed scripts
+│   ├── src/
+│   │   ├── controllers/   # Auth, Scheme, AI, Eligibility, Admin controllers
+│   │   ├── middleware/    # JWT auth & error handling middleware
+│   │   ├── routes/        # Express API route endpoints
+│   │   ├── services/      # AI engine, eligibility & recommendation services
+│   │   └── server.ts      # Main Express server entry point
+│   └── package.json
+├── frontend/
+│   ├── public/            # Static assets & brand logos
+│   ├── src/
+│   │   ├── components/    # Reusable UI, AI modal, Checklist, Cards
+│   │   ├── context/       # Auth, Language (i18n), and Notification context
+│   │   ├── pages/         # Landing, Find, Detail, Dashboard, Admin, Auth
+│   │   ├── services/      # Centralized API client & offline dataset
+│   │   ├── App.tsx        # Router configuration
+│   │   └── main.tsx       # React root
+│   └── package.json
+├── start-karmix.bat       # One-click Windows launch script
+└── README.md
+```
 
 ---
 
 ## 🛡️ Statutory Disclaimer
 
-> **Important Notice**: Karmix Helper is an independent civic-tech information and assistance platform. It is not affiliated with, sponsored by, or operated by any government authority. All scheme applications and final sanction determinations are made exclusively on official government portals (`.gov.in`, `.nic.in`, state gazettes).
+> **Important Notice**: Karmix Helper is an independent civic-tech information and assistance platform. It is not affiliated with or operated by any government authority. All scheme applications and final sanction determinations are made exclusively on official government portals (`.gov.in`, `.nic.in`, state gazettes).
+
+---
+
+<div align="center">
+  <p>Made with ❤️ by <strong>Prajwal Chavan</strong></p>
+  <p>
+    <a href="https://github.com/prajwalchavan25">GitHub Profile</a> •
+    <a href="https://github.com/prajwalchavan25/Karmix-Helper">Repository</a>
+  </p>
+</div>
