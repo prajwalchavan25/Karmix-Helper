@@ -2,3 +2,4 @@
 - 2026-08-31 18:42:10 +0530: docs: update multilingual scheme dictionary definitions
 - 2026-08-31 21:05:44 +0530: style: refine responsive card layout for mobile view
 - 2026-09-01 11:30:15 +0530: perf: improve client-side cache invalidation logic
+- 2026-09-01 16:22:50 +0530: feat: add validation rules for applicant eligibility forms
