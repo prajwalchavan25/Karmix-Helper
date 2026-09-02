@@ -5,3 +5,4 @@
 - 2026-09-01 16:22:50 +0530: feat: add validation rules for applicant eligibility forms
 - 2026-09-01 20:18:33 +0530: docs: sync English and Marathi localization strings
 - 2026-09-02 13:45:10 +0530: fix: handle edge cases in document verification status parser
+- 2026-09-02 17:50:22 +0530: test: add unit tests for scheme matching scoring engine
