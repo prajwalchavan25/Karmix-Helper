@@ -4,3 +4,4 @@
 - 2026-09-01 11:30:15 +0530: perf: improve client-side cache invalidation logic
 - 2026-09-01 16:22:50 +0530: feat: add validation rules for applicant eligibility forms
 - 2026-09-01 20:18:33 +0530: docs: sync English and Marathi localization strings
+- 2026-09-02 13:45:10 +0530: fix: handle edge cases in document verification status parser
