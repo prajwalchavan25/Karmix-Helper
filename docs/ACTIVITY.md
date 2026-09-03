@@ -7,3 +7,4 @@
 - 2026-09-02 13:45:10 +0530: fix: handle edge cases in document verification status parser
 - 2026-09-02 17:50:22 +0530: test: add unit tests for scheme matching scoring engine
 - 2026-09-02 21:12:05 +0530: chore: update dependency versions and build scripts
+- 2026-09-03 12:10:40 +0530: feat: add toast notifications for network state changes
