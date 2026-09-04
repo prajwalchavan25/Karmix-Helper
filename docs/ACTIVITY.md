@@ -12,3 +12,4 @@
 - 2026-09-03 19:40:55 +0530: docs: expand API documentation for helper endpoints
 - 2026-09-04 14:20:12 +0530: perf: optimize SVG asset loading and icon rendering
 - 2026-09-04 18:15:30 +0530: fix: resolve mobile navigation backdrop blur glitch
+- 2026-09-04 20:55:40 +0530: feat: add bookmarking support for frequently viewed schemes
