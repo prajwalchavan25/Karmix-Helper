@@ -11,3 +11,4 @@
 - 2026-09-03 15:35:18 +0530: refactor: simplify state management in scheme explorer
 - 2026-09-03 19:40:55 +0530: docs: expand API documentation for helper endpoints
 - 2026-09-04 14:20:12 +0530: perf: optimize SVG asset loading and icon rendering
+- 2026-09-04 18:15:30 +0530: fix: resolve mobile navigation backdrop blur glitch
