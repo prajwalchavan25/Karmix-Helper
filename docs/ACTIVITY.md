@@ -14,3 +14,4 @@
 - 2026-09-04 18:15:30 +0530: fix: resolve mobile navigation backdrop blur glitch
 - 2026-09-04 20:55:40 +0530: feat: add bookmarking support for frequently viewed schemes
 - 2026-09-05 11:40:25 +0530: refactor: streamline eligibility evaluator error boundaries
+- 2026-09-05 16:50:15 +0530: docs: update Marathi gazette source citations
