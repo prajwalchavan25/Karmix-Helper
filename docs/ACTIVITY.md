@@ -16,3 +16,4 @@
 - 2026-09-05 11:40:25 +0530: refactor: streamline eligibility evaluator error boundaries
 - 2026-09-05 16:50:15 +0530: docs: update Marathi gazette source citations
 - 2026-09-05 21:25:10 +0530: style: improve dark mode contrast on form inputs
+- 2026-09-06 13:15:00 +0530: feat: implement fuzzy search query debounce
