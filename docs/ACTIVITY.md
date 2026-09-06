@@ -18,3 +18,4 @@
 - 2026-09-05 21:25:10 +0530: style: improve dark mode contrast on form inputs
 - 2026-09-06 13:15:00 +0530: feat: implement fuzzy search query debounce
 - 2026-09-06 17:30:45 +0530: test: add end-to-end test scenarios for scheme filter flow
+- 2026-09-06 20:45:20 +0530: docs: update developer setup guide and prerequisites
