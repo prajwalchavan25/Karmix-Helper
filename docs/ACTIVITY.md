@@ -19,3 +19,4 @@
 - 2026-09-06 13:15:00 +0530: feat: implement fuzzy search query debounce
 - 2026-09-06 17:30:45 +0530: test: add end-to-end test scenarios for scheme filter flow
 - 2026-09-06 20:45:20 +0530: docs: update developer setup guide and prerequisites
+- 2026-09-07 12:25:35 +0530: perf: reduce bundle footprint by treeshaking utility functions
