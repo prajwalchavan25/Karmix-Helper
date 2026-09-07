@@ -21,3 +21,4 @@
 - 2026-09-06 20:45:20 +0530: docs: update developer setup guide and prerequisites
 - 2026-09-07 12:25:35 +0530: perf: reduce bundle footprint by treeshaking utility functions
 - 2026-09-07 15:40:10 +0530: fix: sanitize user input in search query parameters
+- 2026-09-07 19:50:18 +0530: feat: add keyboard shortcut navigation in scheme list
