@@ -24,3 +24,4 @@
 - 2026-09-07 19:50:18 +0530: feat: add keyboard shortcut navigation in scheme list
 - 2026-09-08 14:10:50 +0530: refactor: extract reusable modal components in frontend
 - 2026-09-08 18:22:15 +0530: docs: add troubleshooting steps for local development
+- 2026-09-08 21:05:30 +0530: feat: enhance Marathi translation coverage in civic catalog
