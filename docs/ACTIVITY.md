@@ -27,3 +27,4 @@
 - 2026-09-08 21:05:30 +0530: feat: enhance Marathi translation coverage in civic catalog
 - 2026-09-09 11:55:20 +0530: fix: handle null dates in document readiness progress bar
 - 2026-09-09 16:15:40 +0530: perf: optimize database query indexing for scheme lookup
+- 2026-09-09 20:30:15 +0530: style: refine animation transitions on card click
