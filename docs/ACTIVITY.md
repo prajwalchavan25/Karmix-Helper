@@ -30,3 +30,4 @@
 - 2026-09-09 20:30:15 +0530: style: refine animation transitions on card click
 - 2026-09-10 13:20:45 +0530: feat: add offline caching support with ServiceWorker
 - 2026-09-10 17:45:10 +0530: docs: update architecture overview in README
+- 2026-09-10 21:15:55 +0530: test: add integration tests for scheme recommendation pipeline
