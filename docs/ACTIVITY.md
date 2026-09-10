@@ -28,3 +28,4 @@
 - 2026-09-09 11:55:20 +0530: fix: handle null dates in document readiness progress bar
 - 2026-09-09 16:15:40 +0530: perf: optimize database query indexing for scheme lookup
 - 2026-09-09 20:30:15 +0530: style: refine animation transitions on card click
+- 2026-09-10 13:20:45 +0530: feat: add offline caching support with ServiceWorker
