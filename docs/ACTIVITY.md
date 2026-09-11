@@ -33,3 +33,4 @@
 - 2026-09-10 21:15:55 +0530: test: add integration tests for scheme recommendation pipeline
 - 2026-09-11 12:40:15 +0530: refactor: clean up legacy scheme category taxonomy
 - 2026-09-11 16:30:22 +0530: fix: prevent duplicate submissions in feedback form
+- 2026-09-11 20:10:40 +0530: feat: add quick filter chips for student scholarship schemes
