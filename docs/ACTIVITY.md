@@ -32,3 +32,4 @@
 - 2026-09-10 17:45:10 +0530: docs: update architecture overview in README
 - 2026-09-10 21:15:55 +0530: test: add integration tests for scheme recommendation pipeline
 - 2026-09-11 12:40:15 +0530: refactor: clean up legacy scheme category taxonomy
+- 2026-09-11 16:30:22 +0530: fix: prevent duplicate submissions in feedback form
