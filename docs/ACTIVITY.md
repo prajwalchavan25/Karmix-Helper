@@ -36,3 +36,4 @@
 - 2026-09-11 20:10:40 +0530: feat: add quick filter chips for student scholarship schemes
 - 2026-09-12 14:05:30 +0530: style: optimize mobile typography and line heights
 - 2026-09-12 18:50:12 +0530: docs: expand API schema specs for helper microservice
+- 2026-09-12 21:40:25 +0530: perf: lazy load heavy scheme illustration graphics
