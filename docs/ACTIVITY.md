@@ -37,3 +37,4 @@
 - 2026-09-12 14:05:30 +0530: style: optimize mobile typography and line heights
 - 2026-09-12 18:50:12 +0530: docs: expand API schema specs for helper microservice
 - 2026-09-12 21:40:25 +0530: perf: lazy load heavy scheme illustration graphics
+- 2026-09-13 12:15:10 +0530: feat: add export functionality for saved scheme checklist
