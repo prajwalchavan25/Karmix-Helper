@@ -38,3 +38,4 @@
 - 2026-09-12 18:50:12 +0530: docs: expand API schema specs for helper microservice
 - 2026-09-12 21:40:25 +0530: perf: lazy load heavy scheme illustration graphics
 - 2026-09-13 12:15:10 +0530: feat: add export functionality for saved scheme checklist
+- 2026-09-13 16:45:35 +0530: fix: correct tooltip positioning on mobile screens
