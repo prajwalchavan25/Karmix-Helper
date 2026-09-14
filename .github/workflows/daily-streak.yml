@@ -1,0 +1,30 @@
+name: Daily Activity Sync
+
+on:
+  schedule:
+    # Runs everyday at 06:00 UTC (11:30 AM IST) and 14:00 UTC (07:30 PM IST)
+    - cron: '0 6,14 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  keep-streak:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Update Daily Activity Log
+        run: |
+          mkdir -p docs
+          echo "- Auto sync on $(date -u '+%Y-%m-%d %H:%M:%S UTC')" >> docs/ACTIVITY.md
+
+      - name: Commit & Push Changes
+        run: |
+          git config --local user.name "Prajwal Chavan"
+          git config --local user.email "prajwalchavan25107@gmail.com"
+          git add docs/ACTIVITY.md
+          git commit -m "chore(sync): automated daily activity log [skip ci]" || exit 0
+          git push origin main
